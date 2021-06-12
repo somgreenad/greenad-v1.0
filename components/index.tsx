@@ -17,6 +17,7 @@ const Tab=createBottomTabNavigator();
 const st=createStackNavigator();
 const MainPage=()=>{
 return(
+  
     <NavigationContainer >
     <Tab.Navigator initialRouteName="Home"
 tabBarOptions={{activeTintColor:'white',inactiveTintColor:'black' ,activeBackgroundColor:'#295F2D',inactiveBackgroundColor:'green'}}
