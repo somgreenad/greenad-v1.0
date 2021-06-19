@@ -2,12 +2,16 @@ import React from 'react';
 import {View,Text,StyleSheet, TextInput} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { ScrollView } from 'react-native-gesture-handler';
-import { SearchBar } from 'react-native-elements';
 import { FontAwesome } from '@expo/vector-icons';
 // style
 import primaryColor from '../styles/style';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '../types';
+// components
+import Carousel from './Carousel';
+
+
+
 const HomePage=({ navigation }:StackScreenProps<RootStackParamList>)=>{
 function renderHeader(){
  return(
@@ -31,6 +35,9 @@ function renderHeader(){
    </View>
  <ScrollView >
  <View >
+ {Carousel}
+</View>
+<View>
 </View>
   </ScrollView>
   </View>
