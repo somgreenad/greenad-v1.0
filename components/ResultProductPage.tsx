@@ -17,7 +17,8 @@ search:String
 type Props = RouteProp<RootStackParamList, 'search'>;
 const ResultProducts=()=>{
   const arr=["fg","","","",""]
-
+const[flag,setFlag]=useState(false)
+const[cnt,setCnt]=useState(0)
 const{navigate}=useNavigation();
 const route=useRoute<Props>();
 const{search}=route.params;
@@ -37,10 +38,32 @@ const{search}=route.params;
 }
 
 const v="          "
-const s="helo"
+const s="helo"   
 const a=v+search;
+
+
 function onPressLearnMore(){
-alert(Json.info)
+//   setFlag(!flag)
+// const selectedItem=Json.info.filter(a=>a.id===id);
+
+// if(selectedItem[0].id==id){ }gf
+return(
+  <View style={{flexDirection:'row'}}>
+    <View style={{width:"40%"}}>
+  <Button 
+ onPress={(event)=>setCnt(cnt+1)}
+ title="+"
+ color="orange"/></View>
+ <Text style={{width:"20%",alignSelf:"center",textAlign:"center"}}>
+   {cnt}
+ </Text>
+ <View style={{width:"40%"}}><Button 
+ onPress={(event)=>setCnt(cnt-1)}
+ title="-"
+ color="orange"/></View>
+ </View>
+);
+
 }
 
   return(
@@ -90,7 +113,9 @@ Json.info.map((item)=>{ */}
  <Button
   onPress={onPressLearnMore}
   title="ADD"
-  color="orange"/>
+  color="orange"/> 
+{onPressLearnMore}
+ 
 </View>
     </View>
     </View>
@@ -143,13 +168,13 @@ padding:10,
     height:"95%",
     borderColor:'white',
   },btnView:{
-    top:5,
+    top:4,
   },
   imgView:{
     left:10,
     top:6,
     width:"45%",
-    height:"90%",
+    height:"80%",
     elevation:2,
     borderColor:'white',
   },
@@ -160,13 +185,13 @@ flexDirection:'row',
     width:"100%",
     // alignItems:'center',
     backgroundColor:'white',
-    borderWidth:2,
+    borderWidth:0.5,
     borderColor:'lightgrey'
   },
   tinyLogo: {
     width: 140,
-    height: 150,
-    top:20,
+    height: 140,
+    top:10,
     borderRadius:10,
     left:10
   },
