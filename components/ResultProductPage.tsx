@@ -1,8 +1,9 @@
 import React from 'react';
-import {View,Text,StyleSheet, TextInput,Image,Button} from 'react-native';
+import {View,Text,StyleSheet, TextInput,Image, TouchableOpacity} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+
 import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import { SearchBar } from 'react-native-elements';
+import { SearchBar,Button } from 'react-native-elements';
 import { FontAwesome } from '@expo/vector-icons';
 import  Json from '../assets/sample.json';
 // style
@@ -18,6 +19,8 @@ type Props = RouteProp<RootStackParamList, 'search'>;
 const ResultProducts=()=>{
   const arr=["fg","","","",""]
 const[flag,setFlag]=useState(false)
+const[show,setShow]=useState(false)
+const[sid,setSid]=useState("")
 const[cnt,setCnt]=useState(0)
 const{navigate}=useNavigation();
 const route=useRoute<Props>();
@@ -41,28 +44,72 @@ const v="          "
 const s="helo"   
 const a=v+search;
 
+function showData(id:string){
+setShow(true)
+const selectedItem=Json.info.filter(a=>a.id===id);
 
-function onPressLearnMore(){
+if(selectedItem[0].id==id){
+  setSid(id)
+ }
+}
+
+function incAndDec(action:String){
+  action=="+"?setCnt(cnt+1):setCnt(cnt-1);
+  if(action=="+"){
+    setShow(true);
+  }else{
+  if(cnt<1 ){
+  setShow(false);
+  setCnt(1)
+  }}
+
+
+}
+
+
+function onPressLearnMore(id:string){
 //   setFlag(!flag)
 // const selectedItem=Json.info.filter(a=>a.id===id);
 
-// if(selectedItem[0].id==id){ }gf
+if(id==sid){ 
 return(
-  <View style={{flexDirection:'row'}}>
+  <View style={{flexDirection:'row',top:-40}}>
     <View style={{width:"40%"}}>
-  <Button 
- onPress={(event)=>setCnt(cnt+1)}
- title="+"
- color="orange"/></View>
- <Text style={{width:"20%",alignSelf:"center",textAlign:"center"}}>
-   {cnt}
- </Text>
- <View style={{width:"40%"}}><Button 
- onPress={(event)=>setCnt(cnt-1)}
+    <Button 
+ onPress={()=>incAndDec("-")}
+ buttonStyle={{backgroundColor:'orange'}}
+ titleStyle={{
+  fontSize: 16,
+}}
+
  title="-"
- color="orange"/></View>
+ />
  </View>
+ <View style={{width:"21%"}}>
+
+ <Button 
+ onPress={()=>{}}
+ title={cnt.toString()}
+ titleStyle={{
+  fontSize: 16,
+}}
+ />
+
+     </View>
+ <View style={{width:"40%"}}>
+   <Button 
+ onPress={()=>incAndDec("+")}
+ buttonStyle={{backgroundColor:'orange'}}
+ title="+"
+ style={{backgroundColor:'orange'}}
+ titleStyle={{
+  fontSize: 16,
+}}
+ /></View>
+ </View>
+ 
 );
+}
 
 }
 
@@ -108,13 +155,14 @@ Json.info.map((item)=>{ */}
 
      </View>
 
-     <View style={styles.btnView}>
+     <View style={styles.btnView}   >
 
- <Button
-  onPress={onPressLearnMore}
+<Button
+  onPress={()=>showData(item.id)}
+  buttonStyle={{backgroundColor:'orange'}}
   title="ADD"
-  color="orange"/> 
-{onPressLearnMore}
+ /> 
+{ show && onPressLearnMore(item.id)}
  
 </View>
     </View>
