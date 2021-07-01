@@ -11,6 +11,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import SearchScreen from '../screens/SearchScreen';
 import primaryColor from '../styles/style';
 import ResultProducts from './ResultProductPage';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import Third from './Third';
+
+
+const Drawer=createDrawerNavigator();
 const Tab=createBottomTabNavigator();
 const Stack=createStackNavigator();
 function stackTab(){
@@ -63,7 +68,13 @@ tabBarOptions={{activeTintColor:'white',inactiveTintColor:'black' ,activeBackgro
 const MainPage=()=>{
 return(
   <NavigationContainer>
-  {stackTab()}
+
+<Drawer.Navigator>
+      <Drawer.Screen name="Home" component={stackTab} />
+      <Drawer.Screen name="Feed" component={Second} />
+      <Drawer.Screen name="Article" component={Third} />
+ </Drawer.Navigator>
+ 
  </NavigationContainer>);
 }
 const style=StyleSheet.create({

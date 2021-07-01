@@ -77,7 +77,7 @@ return(
     <View style={{width:"40%"}}>
     <Button 
  onPress={()=>incAndDec("-")}
- buttonStyle={{backgroundColor:'orange'}}
+ buttonStyle={{backgroundColor:primaryColor}}
  titleStyle={{
   fontSize: 16,
 }}
@@ -99,7 +99,7 @@ return(
  <View style={{width:"40%"}}>
    <Button 
  onPress={()=>incAndDec("+")}
- buttonStyle={{backgroundColor:'orange'}}
+ buttonStyle={{backgroundColor:primaryColor}}
  title="+"
  style={{backgroundColor:'orange'}}
  titleStyle={{
@@ -159,7 +159,7 @@ Json.info.map((item)=>{ */}
 
 <Button
   onPress={()=>showData(item.id)}
-  buttonStyle={{backgroundColor:'orange'}}
+  buttonStyle={{backgroundColor:primaryColor}}
   title="ADD"
  /> 
 { show && onPressLearnMore(item.id)}

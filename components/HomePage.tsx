@@ -1,7 +1,7 @@
 import React from 'react';
 import {View,Text,StyleSheet, TextInput} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { FontAwesome } from '@expo/vector-icons';
 // style
 import primaryColor from '../styles/style';
@@ -10,9 +10,20 @@ import { RootStackParamList } from '../types';
 // components
 import Carousel from './Carousel';
 
+//drawer navigation
+import { AppRegistry, Dimensions } from 'react-native';
+import { DrawerNavigationState } from 'react-navigation';
+import Second from './Second';
+import Third from './Third';
+import { NavigationContainer, DrawerActions } from '@react-navigation/native';
+
 
 
 const HomePage=({ navigation }:StackScreenProps<RootStackParamList>)=>{
+
+  
+
+
 function renderHeader(){
  return(
   // top notification section of the phone
@@ -20,7 +31,9 @@ function renderHeader(){
   <View>
   </View>
   <View style={{marginTop:40,flexDirection:'row', height:80,backgroundColor:primaryColor}}>
-  <Ionicons style={{marginLeft:10 }} name="menu" size={32} color="black" />
+  <TouchableOpacity onPress={()=>navigation.dispatch(DrawerActions.openDrawer)}>
+  <Ionicons  style={{marginLeft:10 }} name="menu" size={32} color="black" />
+  </TouchableOpacity>
  <Text style={{marginLeft:100,fontSize:20,color:'white', textAlign:'center'}}>Greenad</Text>
  <Ionicons style={{ marginLeft:100 }} name="md-cart" size={24} color="black" />
   </View>
