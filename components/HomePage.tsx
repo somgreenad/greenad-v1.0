@@ -9,6 +9,9 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '../types';
 // components
 import Carousel from './Carousel';
+import VerticalScroll  from './cards-vertical-scroll';
+import Heading from './HeadingComponent';
+import ImageWithCuttedEdge from './Img-with-cutted-edge';
 
 //drawer navigation
 import { AppRegistry, Dimensions } from 'react-native';
@@ -50,6 +53,13 @@ function renderHeader(){
  <View >
  {Carousel}
 </View>
+{Heading('Best sales')}
+<VerticalScroll />
+{Heading('combo pack')}
+{ImageWithCuttedEdge()}
+{Heading('value for money')}
+       <VerticalScroll />  
+       {Carousel} 
 <View>
 </View>
   </ScrollView>
