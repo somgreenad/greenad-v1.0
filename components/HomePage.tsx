@@ -12,6 +12,7 @@ import Carousel from './Carousel';
 import VerticalScroll  from './cards-vertical-scroll';
 import Heading from './HeadingComponent';
 import ImageWithCuttedEdge from './Img-with-cutted-edge';
+import weeklyPack from './Weekly-Pack';
 
 //drawer navigation
 import { AppRegistry, Dimensions } from 'react-native';
@@ -61,6 +62,7 @@ function renderHeader(){
        <VerticalScroll />  
        {Carousel} 
 <View>
+   {weeklyPack()}
 </View>
   </ScrollView>
   </View>
