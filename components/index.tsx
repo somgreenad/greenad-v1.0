@@ -18,6 +18,8 @@ import { color } from 'react-native-reanimated';
 import { Icon } from 'react-native-elements';
 import Item from './IndividualItem';
 
+import weeklyPackScreen from '../screens/WeekPackScreen';
+
 
 const Drawer=createDrawerNavigator();
 const Tab=createBottomTabNavigator();
@@ -29,6 +31,7 @@ function stackTab(){
     <Stack.Screen name="search" component={SearchScreen} />
     <Stack.Screen name="item" component={Item} />
     <Stack.Screen name="result" component={ResultProducts} />
+     <Stack.Screen name="weekPack" component={weeklyPackScreen} />
  </Stack.Navigator>
  );
 }
