@@ -13,7 +13,7 @@ import primaryColor from '../styles/style';
 import ResultProducts from './ResultProductPage';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import Third from './Third';
-
+import weeklyPackScreen from '../screens/WeekPackScreen';
 
 const Drawer=createDrawerNavigator();
 const Tab=createBottomTabNavigator();
@@ -24,6 +24,7 @@ function stackTab(){
     <Stack.Screen name="Home" component={TabNav} />
     <Stack.Screen name="search" component={SearchScreen} />
     <Stack.Screen name="result" component={ResultProducts} />
+     <Stack.Screen name="weekPack" component={weeklyPackScreen} />
  </Stack.Navigator>
  );
 }
