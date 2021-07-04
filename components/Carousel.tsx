@@ -17,7 +17,7 @@ function Carousel() {
   return (
    <FlatList
       data={slideList}
-      style={{ height:100}}
+      style={{ height:150}}
       renderItem={({ item }) => {
         return <Slide data={item} />;
       }}
