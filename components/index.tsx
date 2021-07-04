@@ -13,6 +13,10 @@ import primaryColor from '../styles/style';
 import ResultProducts from './ResultProductPage';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import Third from './Third';
+import DrawerScreen from '../screens/DrawerNavigation';
+import { color } from 'react-native-reanimated';
+import { Icon } from 'react-native-elements';
+import Item from './IndividualItem';
 
 
 const Drawer=createDrawerNavigator();
@@ -20,9 +24,10 @@ const Tab=createBottomTabNavigator();
 const Stack=createStackNavigator();
 function stackTab(){
  return(
-<Stack.Navigator initialRouteName="Home" screenOptions={{headerShown : false}}>
+<Stack.Navigator initialRouteName="Home" screenOptions={{headerShown:false}}>
     <Stack.Screen name="Home" component={TabNav} />
     <Stack.Screen name="search" component={SearchScreen} />
+    <Stack.Screen name="item" component={Item} />
     <Stack.Screen name="result" component={ResultProducts} />
  </Stack.Navigator>
  );
@@ -69,10 +74,8 @@ const MainPage=()=>{
 return(
   <NavigationContainer>
 
-<Drawer.Navigator>
-      <Drawer.Screen name="Home" component={stackTab} />
-      <Drawer.Screen name="Feed" component={Second} />
-      <Drawer.Screen name="Article" component={Third} />
+<Drawer.Navigator drawerContent={props=><DrawerScreen {...props}/>} >
+      <Drawer.Screen options={{drawerIcon:()=>(<Icon name="home"/>)}} name="Home" component={stackTab} />
  </Drawer.Navigator>
  
  </NavigationContainer>);
