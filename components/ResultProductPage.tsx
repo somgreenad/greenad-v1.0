@@ -12,12 +12,13 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Item from './IndividualItem';
 type RootStackParamList = {
 search:String
 };
 type Props = RouteProp<RootStackParamList, 'search'>;
+
 const ResultProducts=()=>{
-  const arr=["fg","","","",""]
 const[flag,setFlag]=useState(false)
 const[show,setShow]=useState(false)
 const[sid,setSid]=useState("")
@@ -128,13 +129,13 @@ Json.info.map((item)=>{ */}
 {Json.info.map((item)=>
   <TouchableWithoutFeedback key={item.id}>
 <View  style={styles.scrollContainer}>
-   <View style={styles.imgView}>
-
- <Image style={styles.tinyLogo} source={{
+   <View style={styles.imgView} >
+<TouchableOpacity onPress={() => navigate('item',{id:item.id})}>
+ <Image  style={styles.tinyLogo} source={{
           uri:item.img
         }}
       />
-
+</TouchableOpacity>
    </View>
 
    <View style={styles.contentsStyle}>

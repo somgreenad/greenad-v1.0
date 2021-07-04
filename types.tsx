@@ -10,6 +10,7 @@ export type RootStackParamList ={
   Root: undefined;
   NotFound: undefined;
   search: undefined;
+  item:undefined;
   result:undefined;
 }​​​​​​​;
 

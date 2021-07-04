@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "greenad-v1.0",
-    "slug": "greenad-v1.0",
+    "slug": "greenad",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
