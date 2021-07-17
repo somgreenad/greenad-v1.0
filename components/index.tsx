@@ -32,6 +32,62 @@ function stackTab(){
     <Stack.Screen name="item" component={Item} />
     <Stack.Screen name="result" component={ResultProducts} />
      <Stack.Screen name="weekPack" component={weeklyPackScreen} />
+     <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{
+            title: "GREENAD",
+            headerStyle: {
+              backgroundColor: "#2e8b57",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        />
+        <Stack.Screen
+          name="pin"
+          component={PinValidation}
+          options={{
+            title: "GREENAD",
+            headerStyle: {
+              backgroundColor: "#2e8b57",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        />
+        <Stack.Screen
+          name="register"
+          component={RegisterScreen}
+          options={{
+            title: "GREENAD",
+            headerStyle: {
+              backgroundColor: "#2e8b57",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        />
+        <Stack.Screen
+          name="map"
+          component={MapScreen}
+          options={{
+            title: "GREENAD",
+            headerStyle: {
+              backgroundColor: "#2e8b57",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        />
  </Stack.Navigator>
  );
 }
